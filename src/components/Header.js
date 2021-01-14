@@ -30,12 +30,14 @@ export default function Header() {
                             <Badge badgeContent={5} color='secondary'>
                                 <NotificationNoneIcon />
                             </Badge>
+                        </IconButton>
+                        <IconButton>
                             <Badge badgeContent={5} color='secondary'>
                                 <ChatBubbleOutlineIcon />
                             </Badge>
-                            <Badge badgeContent={5} color='secondary'>
-                                <PowerSettingsNewIcon />
-                            </Badge>
+                        </IconButton>
+                        <IconButton>
+                            <PowerSettingsNewIcon />
                         </IconButton>
                     </Grid>
                 </Grid>
