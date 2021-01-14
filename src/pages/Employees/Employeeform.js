@@ -28,6 +28,14 @@ export default function Employeeform() {
 
     const classes = useStyles();
 
+    const handleInputChange = e => {
+        const { name, value } = e.target;
+        setValues({
+            ...values,
+            [name]: value
+        })
+    }
+
     return (
         <>
             <form className={classes.root}>
@@ -36,11 +44,14 @@ export default function Employeeform() {
                         <TextField
                             variant='outlined'
                             label='Full Name'
+                            name='fullName'
                             value={values.fullName}
+                            onChange={handleInputChange}
                             />
                             <TextField
                                 variant='outlined'
                                 label='Email'
+                                name='email'
                                 value={values.email}
                                 />
                     </Grid>
