@@ -106,6 +106,7 @@ export default function Employeeform() {
                             value={values.departmentId}
                             onChange={handleInputChange}
                             options={employeeService.getDepartmentCollection()}
+                            error={errors.departmentId}
                             />
                         <DatePicker
                             name='hireDate'
