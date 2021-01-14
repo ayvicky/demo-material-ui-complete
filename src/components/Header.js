@@ -1,13 +1,22 @@
 import React from 'react';
 
-import { AppBar, Grid, IconButton, InputBase, Toolbar, Badge } from '@material-ui/core';
+import { AppBar, Grid, IconButton, InputBase, Toolbar, Badge, makeStyles } from '@material-ui/core';
 import NotificationNoneIcon from '@material-ui/icons/NotificationsNone';
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
 
+const useStyles = makeStyles({
+    root: {
+        backgroundColor: '#fff'
+    }
+});
+
 export default function Header() {
+
+    const classes = useStyles();
+
     return (
-        <AppBar position='static'>
+        <AppBar position='static' className={classes.root}>
             <Toolbar>
                 <Grid container>
                     <Grid item >
