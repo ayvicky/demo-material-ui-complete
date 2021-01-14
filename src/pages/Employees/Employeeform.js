@@ -38,6 +38,8 @@ export default function Employeeform() {
         setErrors({
             ...temp
         })
+        
+        return Object.values(temp).every(x => x == '')
     }
 
     const {
@@ -48,8 +50,10 @@ export default function Employeeform() {
         handleInputChange
     } = useForm(initialFValues);
 
-    const handleSubmit = () => {
-        
+    const handleSubmit = e => {
+        e.preventDefault();
+        if(validate())
+            alert('form is valid')
     }
 
     return (
