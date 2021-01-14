@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react'
 import { FormControl, FormLabel, RadioGroup,FormControlLabel, Radio, Grid, makeStyles, TextField } from '@material-ui/core';
 
 import { useForm, Form } from '../../components/useForm';
-
+import Input from '../../components/controls/Input';
 const initialFValues = {
     id: 0,
     fullName: '',
@@ -31,20 +31,19 @@ export default function Employeeform() {
             <Form>
                 <Grid container>
                     <Grid item xs={6}>
-                        <TextField
-                            variant='outlined'
-                            label='Full Name'
+                        <Input
                             name='fullName'
+                            label='Full Name'
                             value={values.fullName}
                             onChange={handleInputChange}
                             />
-                            <TextField
-                                variant='outlined'
-                                label='Email'
-                                name='email'
-                                value={values.email}
-                                onChange={handleInputChange}
-                                />
+                        <Input
+                            variant='outlined'
+                            label='Email'
+                            name='email'
+                            value={values.email}
+                            onChange={handleInputChange}
+                            />
                     </Grid>
                     <Grid item xs={6}>
                         <FormControl>
