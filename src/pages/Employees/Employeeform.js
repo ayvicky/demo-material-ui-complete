@@ -69,6 +69,12 @@ export default function Employeeform() {
                             onChange={handleInputChange}
                             options={employeeService.getDepartmentCollection()}
                             />
+                        <Controls.Checkbox
+                            name='isPermanent'
+                            label='Permanent Employee'
+                            value={values.isPermanent}
+                            onChange={handleInputChange}
+                            />
                     </Grid>
                 </Grid>
             </Form>
