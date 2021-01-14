@@ -32,7 +32,7 @@ export default function Employeeform() {
     const validate = () => {
         let temp = {}
         temp.fullName = values.fullName ? '' : 'This field is required.'
-        temp.email = (/$|.+@.+..+/).test(values.email) ? '' : 'Email is not valid.'
+        temp.email = (/$^|.+@.+..+/).test(values.email) ? '' : 'Email is not valid.'
         temp.mobile = values.mobile.length > 9 ? '' : 'Minimum 10 numbers are required!'
         temp.departmentId = values.departmentId.length != 0 ? '' : 'This field is required.'
         setErrors({
@@ -66,6 +66,7 @@ export default function Employeeform() {
                             label='Full Name'
                             value={values.fullName}
                             onChange={handleInputChange}
+                            error={errors.fullName}
                             />
                             <Controls.Input
                                 variant='outlined'
@@ -73,6 +74,7 @@ export default function Employeeform() {
                                 name='email'
                                 value={values.email}
                                 onChange={handleInputChange}
+                                error={errors.email}
                                 />
                                 <Controls.Input
                                     variant='outlined'
@@ -80,6 +82,7 @@ export default function Employeeform() {
                                     name='mobile'
                                     value={values.mobile}
                                     onChange={handleInputChange}
+                                    error={errors.mobile}
                                     />
                                     <Controls.Input
                                         variant='outlined'
