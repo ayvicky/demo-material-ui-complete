@@ -47,13 +47,27 @@ export default function Employeeform() {
                             value={values.fullName}
                             onChange={handleInputChange}
                             />
-                        <Controls.Input
-                            variant='outlined'
-                            label='Email'
-                            name='email'
-                            value={values.email}
-                            onChange={handleInputChange}
-                            />
+                            <Controls.Input
+                                variant='outlined'
+                                label='Email'
+                                name='email'
+                                value={values.email}
+                                onChange={handleInputChange}
+                                />
+                                <Controls.Input
+                                    variant='outlined'
+                                    label='Mobile'
+                                    name='mobile'
+                                    value={values.mobile}
+                                    onChange={handleInputChange}
+                                    />
+                                    <Controls.Input
+                                        variant='outlined'
+                                        label='City'
+                                        name='city'
+                                        value={values.city}
+                                        onChange={handleInputChange}
+                                        />
                     </Grid>
                     <Grid item xs={6}>
                         <Controls.RadioGroup
