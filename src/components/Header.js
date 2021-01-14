@@ -4,10 +4,22 @@ import { AppBar, Grid, IconButton, InputBase, Toolbar, Badge, makeStyles } from 
 import NotificationNoneIcon from '@material-ui/icons/NotificationsNone';
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
+import SearchIcon from '@material-ui/icons/Search';
 
 const useStyles = makeStyles({
     root: {
         backgroundColor: '#fff'
+    },
+    searchInput: {
+        opacity: 0.6,
+        padding: '0px 8px',
+        fontSize: '0.8rem',
+        '&:hover': {
+            backgroundColor: '#f2f2f2'
+        },
+        '& .MuiSvgIcon-root': {
+            marginRight: '8px'
+        }
     }
 });
 
@@ -18,9 +30,12 @@ export default function Header() {
     return (
         <AppBar position='static' className={classes.root}>
             <Toolbar>
-                <Grid container>
+                <Grid container alignItems='center'>
                     <Grid item >
-                        <InputBase />
+                        <InputBase
+                            className={classes.searchInput}
+                            placeholder='Search Complaint'
+                            startAdornment={<SearchIcon fontSize='small' />} />
                     </Grid>
                     <Grid item sm>
 
