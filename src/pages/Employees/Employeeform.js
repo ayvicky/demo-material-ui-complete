@@ -1,9 +1,11 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 
-import { FormControl, FormLabel, RadioGroup,FormControlLabel, Radio, Grid, makeStyles, TextField } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 
 import { useForm, Form } from '../../components/useForm';
 import { Controls } from '../../components/controls/Controls';
+
+import * as employeeService from '../../services/employeeService';
 
 const genderItems = [
     {id: 'male', title: 'Male'},
@@ -60,7 +62,13 @@ export default function Employeeform() {
                             onChange={handleInputChange}
                             items={genderItems}
                             />
-
+                        <Controls.Select
+                            name='departmentId'
+                            label='Department'
+                            value={values.departmentId}
+                            onChange={handleInputChange}
+                            options={employeeService.getDepartmentCollection()}
+                            />
                     </Grid>
                 </Grid>
             </Form>
