@@ -32,6 +32,11 @@ const theme = createMuiTheme({
         transform: 'translateZ(0)'
       }
     }
+  },
+  props: {
+    MuiIconButton: {
+      disableRipple: true
+    }
   }
 })
 
