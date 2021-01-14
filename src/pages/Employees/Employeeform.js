@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 
 import { Grid, makeStyles, TextField } from '@material-ui/core';
 
-import useForm from '../../components/useForm';
+import { useForm, Form } from '../../components/useForm';
 
 const initialFValues = {
     id: 0,
@@ -16,19 +16,8 @@ const initialFValues = {
     isPermanent: false
 };
 
-const useStyles = makeStyles(theme => ({
-    root: {
-        '& .MuiInputBase-root': {
-            width: '80%',
-            margin: theme.spacing(1)
-        }
-    }
-}));
-
 export default function Employeeform() {
     // const [values, setValues] = useState(initialFValues);
-
-    const classes = useStyles();
 
     const {
         values,
@@ -39,7 +28,7 @@ export default function Employeeform() {
 
     return (
         <>
-            <form className={classes.root}>
+            <Form>
                 <Grid container>
                     <Grid item xs={6}>
                         <TextField
@@ -59,7 +48,7 @@ export default function Employeeform() {
                     </Grid>
                     <Grid item xs={6}> </Grid>
                 </Grid>
-            </form>
+            </Form>
         </>
     )
 }
