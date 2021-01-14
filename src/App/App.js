@@ -43,7 +43,7 @@ function App() {
         <PageHeader 
           title='Page Header'
           subTitle= 'Page description'
-          icon={<PeopleOutlineTwoToneIcon />}
+          icon={<PeopleOutlineTwoToneIcon fontSize='large' />}
           />
         Here we go!
       </div>
