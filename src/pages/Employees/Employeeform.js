@@ -29,16 +29,32 @@ const initialFValues = {
 export default function Employeeform() {
     // const [values, setValues] = useState(initialFValues);
 
+    const validate = () => {
+        let temp = {}
+        temp.fullName = values.fullName ? '' : 'This field is required.'
+        temp.email = (/$|.+@.+..+/).test(values.email) ? '' : 'Email is not valid.'
+        temp.mobile = values.mobile.length > 9 ? '' : 'Minimum 10 numbers are required!'
+        temp.departmentId = values.departmentId.length != 0 ? '' : 'This field is required.'
+        setErrors({
+            ...temp
+        })
+    }
+
     const {
         values,
         setValues,
+        errors,
+        setErrors,
         handleInputChange
     } = useForm(initialFValues);
 
+    const handleSubmit = () => {
+        
+    }
 
     return (
         <>
-            <Form>
+            <Form onSubmit={handleSubmit}>
                 <Grid container>
                     <Grid item xs={6}>
                         <Controls.Input
