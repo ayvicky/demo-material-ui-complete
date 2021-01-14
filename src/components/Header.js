@@ -20,12 +20,6 @@ const useStyles = makeStyles({
         '& .MuiSvgIcon-root': {
             marginRight: '8px'
         }
-    },
-    btnRoot: {
-        backgroundColor: 'green'
-    },
-    btnLabel: {
-        backgroundColor: 'red'
     }
 });
 
@@ -52,7 +46,7 @@ export default function Header() {
                                 <NotificationNoneIcon />
                             </Badge>
                         </IconButton>
-                        <IconButton classes={{root: classes.btnRoot, label: classes.btnLabel}}>
+                        <IconButton>
                             <Badge badgeContent={5} color='secondary'>
                                 <ChatBubbleOutlineIcon />
                             </Badge>
