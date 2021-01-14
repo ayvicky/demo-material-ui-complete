@@ -1,8 +1,13 @@
-import './App.css';
+import { createMuiTheme, CssBaseline, makeStyles, ThemeProvider } from '@material-ui/core';
+
+import PeopleOutlineTwoToneIcon from '@material-ui/icons/PeopleOutlineTwoTone';
 
 import SideMenu from '../components/SideMenu';
 import Header from '../components/Header';
-import { createMuiTheme, CssBaseline, makeStyles, ThemeProvider } from '@material-ui/core';
+import PageHeader from '../components/PageHeader';
+
+
+import './App.css';
 
 const theme = createMuiTheme({
   palette: {
@@ -35,6 +40,11 @@ function App() {
       <SideMenu />
       <div className={classes.appMain}>
         <Header/>
+        <PageHeader 
+          title='Page Header'
+          subTitle= 'Page description'
+          icon={<PeopleOutlineTwoToneIcon />}
+          />
         Here we go!
       </div>
       <CssBaseline />
