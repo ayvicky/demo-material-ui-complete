@@ -10,10 +10,10 @@ import './App.css';
 
 const theme = createMuiTheme({
   palette: {
-    primary: {
-      main: '#ff0000',
-      light: '#3c44b126'
-    },
+    // primary: {
+    //   // main: '#ff0000',
+    //   light: '#3c44b126'
+    // },
     secondary: {
       main: '#f83245',
       light: '#f8324526'
@@ -23,7 +23,7 @@ const theme = createMuiTheme({
     },
   },
   shape: {
-    borderRadius: '12px'
+    // borderRadius: '12px'
   },
   overrides: {
     MuiAppBar: {
