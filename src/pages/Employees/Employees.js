@@ -1,21 +1,33 @@
 import React from 'react'
 
+import { Paper, makeStyles } from '@material-ui/core';
 import PeopleOutlineTwoToneIcon from '@material-ui/icons/PeopleOutlineTwoTone';
 
 import Employeeform from './Employeeform'
 
 import PageHeader from '../../components/PageHeader';
 
+
+const useStyles = makeStyles(theme => ({
+    pageContent: {
+        margin: theme.spacing(5),
+        padding: theme.spacing(3)
+    }
+}));
+
+
 export default function Employees() {
+    const classes = useStyles();
     return (
         <>
-        
-        <PageHeader 
-          title='Page Header'
-          subTitle= 'Page description'
+        <PageHeader
+          title='New Employee'
+          subTitle= 'Form design with validation'
           icon={<PeopleOutlineTwoToneIcon fontSize='large' />}
           />
+          <Paper className={classes.pageContent}>
             <Employeeform />
+          </Paper>
         </>
     )
 }
