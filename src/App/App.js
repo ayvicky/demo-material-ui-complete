@@ -1,8 +1,13 @@
 import './App.css';
 
+import SideMenu from '../components/SideMenu';
+
 function App() {
   return (
-    <div>Here we go!</div>
+    <>
+      <SideMenu />
+      <div>Here we go!</div>
+    </>
     );
 }
 
