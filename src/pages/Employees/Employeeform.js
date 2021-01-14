@@ -47,7 +47,8 @@ export default function Employeeform() {
         setValues,
         errors,
         setErrors,
-        handleInputChange
+        handleInputChange,
+        resetForm
     } = useForm(initialFValues);
 
     const handleSubmit = e => {
@@ -55,6 +56,7 @@ export default function Employeeform() {
         if(validate())
             alert('form is valid')
     }
+
 
     return (
         <>
@@ -129,6 +131,7 @@ export default function Employeeform() {
                                 <Controls.Button
                                     text='Reset'
                                     color='default'
+                                    onClick={resetForm}
                                     />
                         </div>
                     </Grid>
