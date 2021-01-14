@@ -102,6 +102,10 @@ export default function Employeeform() {
                                 type='submit'
                                 text='Submit'
                                 />
+                                <Controls.Button
+                                    text='Reset'
+                                    color='default'
+                                    />
                         </div>
                     </Grid>
                 </Grid>
