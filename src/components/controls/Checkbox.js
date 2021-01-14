@@ -10,6 +10,7 @@ export default function Checkbox(props) {
             name, value
         }
     })
+    
     return (
         <FormControl>
             <FormControlLabel

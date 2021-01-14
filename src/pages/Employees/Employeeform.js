@@ -6,6 +6,7 @@ import { useForm, Form } from '../../components/useForm';
 import { Controls } from '../../components/controls/Controls';
 
 import * as employeeService from '../../services/employeeService';
+import DatePicker from '../../components/controls/DatePicker';
 
 const genderItems = [
     {id: 'male', title: 'Male'},
@@ -68,6 +69,12 @@ export default function Employeeform() {
                             value={values.departmentId}
                             onChange={handleInputChange}
                             options={employeeService.getDepartmentCollection()}
+                            />
+                        <DatePicker
+                            name='hireDate'
+                            label='Hire Date'
+                            value={values.hireDate}
+                            onChange={handleInputChange}
                             />
                         <Controls.Checkbox
                             name='isPermanent'
