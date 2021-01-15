@@ -25,7 +25,7 @@ export default function useTable(records, headCells) {
 
     const classes = useStyles();
 
-    const pages = [1, 5, 10, 25]
+    const pages = [5, 10, 25]
     const [page, setPage] = useState(0)
     const [rowsPerPage, setRowsPerPage] = useState(pages[page])
 
@@ -68,9 +68,14 @@ export default function useTable(records, headCells) {
             />
     )
 
+    const recordsAfterPaginationAndSorting = () => {
+        return records.slice(page * rowsPerPage, (page +1) * rowsPerPage)
+    }
+
     return {
         TblContainer,
         TblHead,
-        TblPagination
+        TblPagination,
+        recordsAfterPaginationAndSorting
     }
 }

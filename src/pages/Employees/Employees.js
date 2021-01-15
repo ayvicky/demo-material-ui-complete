@@ -30,7 +30,8 @@ export default function Employees() {
     const { 
       TblContainer,
       TblHead,
-      TblPagination
+      TblPagination,
+      recordsAfterPaginationAndSorting
     } = useTable(records, headCells);
     return (
         <>
@@ -44,7 +45,7 @@ export default function Employees() {
             <TblContainer>
               <TblHead />
               <TableBody>
-                {records.map(item => (
+                {recordsAfterPaginationAndSorting().map(item => (
                   <TableRow key={item.id}>
                     <TableCell> {item.fullName} </TableCell>
                     <TableCell> {item.email} </TableCell>
