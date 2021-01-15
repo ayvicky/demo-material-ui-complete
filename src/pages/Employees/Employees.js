@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 
-import { Paper, makeStyles, TableBody, TableRow, TableCell } from '@material-ui/core';
+import { Paper, makeStyles, TableBody, TableRow, TableCell, Toolbar, InputAdornment } from '@material-ui/core';
 import PeopleOutlineTwoToneIcon from '@material-ui/icons/PeopleOutlineTwoTone';
+import Search from '@material-ui/icons/Search';
 
+import { Controls } from '../../components/controls/Controls';
 import Employeeform from './Employeeform'
 
 import PageHeader from '../../components/PageHeader';
@@ -14,6 +16,9 @@ const useStyles = makeStyles(theme => ({
     pageContent: {
         margin: theme.spacing(5),
         padding: theme.spacing(3)
+    },
+    searchInput: {
+      width: '75%'
     }
 }));
 
@@ -42,6 +47,17 @@ export default function Employees() {
           />
           <Paper className={classes.pageContent}>
             {/* <Employeeform /> */}
+            <Toolbar>
+              <Controls.Input
+                  label='Search Employee'
+                  className={classes.searchInput}
+                    InputProps= {{
+                      startAdornment: (<InputAdornment position='start'>
+                        <Search />
+                      </InputAdornment>)
+                    }}
+                />
+            </Toolbar>
             <TblContainer>
               <TblHead />
               <TableBody>
