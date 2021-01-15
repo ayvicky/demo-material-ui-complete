@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { Paper, makeStyles, TableBody, TableRow, TableCell, Toolbar, InputAdornment } from '@material-ui/core';
 import PeopleOutlineTwoToneIcon from '@material-ui/icons/PeopleOutlineTwoTone';
 import Search from '@material-ui/icons/Search';
+import AddIcon from '@material-ui/icons/Add';
 
 import { Controls } from '../../components/controls/Controls';
 import Employeeform from './Employeeform'
@@ -19,6 +20,10 @@ const useStyles = makeStyles(theme => ({
     },
     searchInput: {
       width: '75%'
+    },
+    newButton: {
+      position: 'absolute',
+      right: '10px'
     }
 }));
 
@@ -71,6 +76,11 @@ export default function Employees() {
                       </InputAdornment>)
                     }}
                     onChange={handleSearch}
+                />
+              <Controls.Button
+                text='Add New'
+                startIcon={<AddIcon />}
+                className={classes.newButton}
                 />
             </Toolbar>
             <TblContainer>
