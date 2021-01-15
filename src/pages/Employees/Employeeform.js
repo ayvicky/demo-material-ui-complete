@@ -27,7 +27,7 @@ const initialFValues = {
 };
 
 export default function Employeeform(props) {
-    const {addOrEdit} = props;
+    const {addOrEdit, recordForEdit} = props;
 
     const validate = (fieldValues = values) => {
         let temp = {...errors}
@@ -64,6 +64,13 @@ export default function Employeeform(props) {
         }
     }
 
+    React.useEffect(() => {
+        if(recordForEdit != null) {
+            setValues({
+                ...recordForEdit
+            })
+        }
+    }, [recordForEdit])
 
     return (
         <>

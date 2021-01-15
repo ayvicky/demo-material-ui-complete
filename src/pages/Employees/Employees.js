@@ -41,6 +41,7 @@ const headCells = [
 
 export default function Employees() {
     const classes = useStyles();
+    const [recordForEdit, setRecordForEdit] = useState(null)
     const [records, setRecords] = useState(employeeService.getAllEmployees() || []);
     const [filterFn, setFilterFn] = useState({fn: items => {return items;}})
     const [openPopup, setOpenPopup] = useState(false)
@@ -69,6 +70,11 @@ export default function Employees() {
       resetForm()
       setOpenPopup(false)
       setRecords(employeeService.getAllEmployees())
+    }
+
+    const openInPopup = item => {
+      setRecordForEdit(item)
+      setOpenPopup(true)
     }
 
     return (
@@ -109,6 +115,7 @@ export default function Employees() {
                     <TableCell> 
                       <Controls.ActionButton
                         color='primary'
+                        onClick={() => openInPopup(item)}
                         >
                         <EditOutlinedIcon fontSize='small' />
                       </Controls.ActionButton>
@@ -130,6 +137,7 @@ export default function Employees() {
             title='Add New Employee'
             >
             <Employeeform
+              recordForEdit={recordForEdit}
               addOrEdit={addOrEdit}
               />
           </Popup>
