@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { Dialog, DialogContent, DialogTitle, makeStyles, Typography } from '@material-ui/core';
-
+import { Dialog, DialogContent, DialogTitle, makeStyles, Typography } from '@material-ui/core'
+import CloseIcon from '@material-ui/icons/Close'
 import { Controls } from './controls/Controls'
 
 const useStyles = makeStyles(theme => ({
@@ -26,10 +26,12 @@ export default function Popup(props) {
                     <Typography varient='h6' component='div' style={{flexGrow: 1}}>
                         {title}
                     </Typography>
-                    <Controls.Button
+                    <Controls.ActionButton
                         color='secondary'
                         text='X'
-                        />
+                        >
+                            <CloseIcon />
+                    </Controls.ActionButton>
                 </div>
             </DialogTitle>
             <DialogContent dividers>
