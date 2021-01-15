@@ -9,8 +9,8 @@ export default function Popup(props) {
             <DialogTitle>
                 {title}
             </DialogTitle>
-            <DialogContent>
-                <div>Content goes here!</div>
+            <DialogContent dividers>
+                {children}
             </DialogContent>
         </Dialog>
     )
