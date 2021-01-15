@@ -29,17 +29,22 @@ const initialFValues = {
 export default function Employeeform() {
     // const [values, setValues] = useState(initialFValues);
 
-    const validate = () => {
-        let temp = {}
-        temp.fullName = values.fullName ? '' : 'This field is required.'
-        temp.email = (/$^|.+@.+..+/).test(values.email) ? '' : 'Email is not valid.'
-        temp.mobile = values.mobile.length > 9 ? '' : 'Minimum 10 numbers are required!'
-        temp.departmentId = values.departmentId.length != 0 ? '' : 'This field is required.'
+    const validate = (fieldValues = values) => {
+        let temp = {...errors}
+        if('fullName' in fieldValues)
+            temp.fullName = values.fullName ? '' : 'This field is required.'
+        if('email' in fieldValues)
+            temp.email = (/$^|.+@.+..+/).test(values.email) ? '' : 'Email is not valid.'
+        if('mobile' in fieldValues)
+            temp.mobile = values.mobile.length > 9 ? '' : 'Minimum 10 numbers are required!'
+        if('departmentId' in fieldValues)
+            temp.departmentId = values.departmentId.length != 0 ? '' : 'This field is required.'
         setErrors({
             ...temp
         })
         
-        return Object.values(temp).every(x => x == '')
+        if(fieldValues == values)
+            return Object.values(temp).every(x => x == '')
     }
 
     const {
@@ -49,7 +54,7 @@ export default function Employeeform() {
         setErrors,
         handleInputChange,
         resetForm
-    } = useForm(initialFValues);
+    } = useForm(initialFValues, true, validate);
 
     const handleSubmit = e => {
         e.preventDefault();
