@@ -29,7 +29,8 @@ export default function Employees() {
     const [records, setRecords] = useState(employeeService.getAllEmployees() || []);
     const { 
       TblContainer,
-      TblHead
+      TblHead,
+      TblPagination
     } = useTable(records, headCells);
     return (
         <>
@@ -53,6 +54,7 @@ export default function Employees() {
                 ))}
               </TableBody>
             </TblContainer>
+            <TblPagination />
           </Paper>
         </>
     )
