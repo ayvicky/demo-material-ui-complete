@@ -10,6 +10,7 @@ import Employeeform from './Employeeform'
 
 import PageHeader from '../../components/PageHeader';
 import useTable from '../../components/useTable';
+import Popup from '../../components/Popup';
 
 import * as employeeService from '../../services/employeeService';
 
@@ -38,6 +39,7 @@ export default function Employees() {
     const classes = useStyles();
     const [records, setRecords] = useState(employeeService.getAllEmployees() || []);
     const [filterFn, setFilterFn] = useState({fn: items => {return items;}})
+    const [openPopup, setOpenPopup] = useState(false)
 
     const { 
       TblContainer,
@@ -65,7 +67,6 @@ export default function Employees() {
           icon={<PeopleOutlineTwoToneIcon fontSize='large' />}
           />
           <Paper className={classes.pageContent}>
-            {/* <Employeeform /> */}
             <Toolbar>
               <Controls.Input
                   label='Search Employee'
@@ -81,6 +82,7 @@ export default function Employees() {
                 text='Add New'
                 startIcon={<AddIcon />}
                 className={classes.newButton}
+                onClick={() => setOpenPopup(true)}
                 />
             </Toolbar>
             <TblContainer>
@@ -98,6 +100,13 @@ export default function Employees() {
             </TblContainer>
             <TblPagination />
           </Paper>
+          <Popup
+            openPopup={openPopup}
+            setOpenPopup={setOpenPopup}
+            title='Add New Employee'
+            >
+            {/* <Employeeform /> */}
+          </Popup>
         </>
     )
 }
