@@ -59,6 +59,14 @@ export default function Employees() {
         }
       })
     }
+    
+    const addOrEdit = (employee, resetForm) => {
+      employeeService.insertEmployee(employee)
+      resetForm()
+      setOpenPopup(false)
+      setRecords(employeeService.getAllEmployees())
+    }
+
     return (
         <>
         <PageHeader
@@ -105,7 +113,9 @@ export default function Employees() {
             setOpenPopup={setOpenPopup}
             title='Add New Employee'
             >
-            <Employeeform />
+            <Employeeform
+              addOrEdit={addOrEdit}
+              />
           </Popup>
         </>
     )
