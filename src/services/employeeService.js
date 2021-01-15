@@ -28,5 +28,5 @@ export function getAllEmployees() {
     if(localStorage.getItem(KEYS.employees) == null)
         localStorage.setItem(KEYS.employees, JSON.stringify([]))
 
-    return localStorage.getItem(KEYS.employees)
+    return JSON.parse(localStorage.getItem(KEYS.employees))
 }
