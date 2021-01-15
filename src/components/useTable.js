@@ -51,7 +51,7 @@ export default function useTable(records, headCells) {
                         headCells.map(headCell => (
                             <TableCell key={headCell.id}> 
                                 <TableSortLabel
-                                    // active={orderBy === headCell.id}
+                                    active={orderBy === headCell.id}
                                     direction={orderBy === headCell.id ? order : 'asc'}
                                     onClick={() => handleSortRequest(headCell.id)}>
                                     { headCell.label}
