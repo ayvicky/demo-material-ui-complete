@@ -1,12 +1,17 @@
 import React from 'react'
 
-import { Dialog, DialogContent, DialogTitle, makeStyles } from '@material-ui/core';
+import { Dialog, DialogContent, DialogTitle, makeStyles, Typography } from '@material-ui/core';
+
+import { Controls } from './controls/Controls'
 
 const useStyles = makeStyles(theme => ({
     dialogWrapper: {
         padding: theme.spacing(2),
         position: 'absolute',
         top: theme.spacing(5)
+    },
+    dialogTitle: {
+        paddingRight: '0px'
     }
 }))
 
@@ -16,8 +21,16 @@ export default function Popup(props) {
 
     return (
         <Dialog open={openPopup} maxWidth='md' classes={{ paper: classes.dialogWrapper}}>
-            <DialogTitle>
-                {title}
+            <DialogTitle className={classes.dialogTitle}>
+                <div style={{display:'flex'}}>
+                    <Typography varient='h6' component='div' style={{flexGrow: 1}}>
+                        {title}
+                    </Typography>
+                    <Controls.Button
+                        color='secondary'
+                        text='X'
+                        />
+                </div>
             </DialogTitle>
             <DialogContent dividers>
                 {children}
