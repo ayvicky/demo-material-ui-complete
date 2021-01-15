@@ -2,8 +2,11 @@ import React, { useState } from 'react'
 
 import { Paper, makeStyles, TableBody, TableRow, TableCell, Toolbar, InputAdornment } from '@material-ui/core';
 import PeopleOutlineTwoToneIcon from '@material-ui/icons/PeopleOutlineTwoTone';
+
 import Search from '@material-ui/icons/Search';
 import AddIcon from '@material-ui/icons/Add';
+import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
+import CloseIcon from '@material-ui/icons/Close';
 
 import { Controls } from '../../components/controls/Controls';
 import Employeeform from './Employeeform'
@@ -103,6 +106,18 @@ export default function Employees() {
                     <TableCell> {item.email} </TableCell>
                     <TableCell> {item.mobile} </TableCell>
                     <TableCell> {item.department} </TableCell>
+                    <TableCell> 
+                      <Controls.ActionButton
+                        color='primary'
+                        >
+                        <EditOutlinedIcon fontSize='small' />
+                      </Controls.ActionButton>
+                      <Controls.ActionButton
+                        color='secondary'
+                        >
+                        <CloseIcon fontSize='small' />
+                      </Controls.ActionButton>
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
