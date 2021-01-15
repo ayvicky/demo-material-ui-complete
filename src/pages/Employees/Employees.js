@@ -104,7 +104,7 @@ export default function Employees() {
                 text='Add New'
                 startIcon={<AddIcon />}
                 className={classes.newButton}
-                onClick={() => setOpenPopup(true)}
+                onClick={() => {setOpenPopup(true); setRecordForEdit(null)}}
                 />
             </Toolbar>
             <TblContainer>
