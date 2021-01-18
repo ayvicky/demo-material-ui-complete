@@ -14,6 +14,7 @@ import Employeeform from './Employeeform'
 import PageHeader from '../../components/PageHeader';
 import useTable from '../../components/useTable';
 import Popup from '../../components/Popup';
+import Notification from '../../components/Notification';
 
 import * as employeeService from '../../services/employeeService';
 
@@ -45,6 +46,7 @@ export default function Employees() {
     const [records, setRecords] = useState(employeeService.getAllEmployees() || []);
     const [filterFn, setFilterFn] = useState({fn: items => {return items;}})
     const [openPopup, setOpenPopup] = useState(false)
+    const [notify, setNotify] = useState({isOpen: '', message: '', type: ''})
 
     const { 
       TblContainer,
@@ -74,6 +76,11 @@ export default function Employees() {
       setRecordForEdit(null)
       setOpenPopup(false)
       setRecords(employeeService.getAllEmployees())
+      setNotify({
+        isOpen: true,
+        message: 'Submitted successfully!',
+        type: 'success'
+      })
     }
 
     const openInPopup = item => {
@@ -145,6 +152,10 @@ export default function Employees() {
               addOrEdit={addOrEdit}
               />
           </Popup>
+          <Notification
+            notify={notify}
+            setNotify={setNotify}
+            />
         </>
     )
 }
