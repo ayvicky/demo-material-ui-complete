@@ -1,6 +1,6 @@
 import React from 'react'
-import { Dialog, DialogActions, DialogContent, DialogTitle, makeStyles, Typography } from '@material-ui/core'
-
+import { Dialog, DialogActions, DialogContent, DialogTitle, IconButton, makeStyles, Typography } from '@material-ui/core'
+import NotListedLocationIcon from '@material-ui/icons/NotListedLocation'
 import { Controls } from './controls/Controls'
 
 const useStyles = makeStyles(theme => ({
@@ -9,11 +9,25 @@ const useStyles = makeStyles(theme => ({
         position: 'absolute',
         top: theme.spacing(5)
     },
+    dialogTitle: {
+        textAlign: 'center'
+    },
     dialogContent: {
         textAlign: 'center'
     },
     dialogActions: {
         justifyContent: 'center'
+    },
+    titleIcon: {
+        backgroundColor: theme.palette.secondary.light,
+        color: theme.palette.secondary.main,
+        '&:hover': {
+            backgroundColor: theme.palette.secondary.light,
+            cursor: 'default'
+        },
+        '& .MuiSvgIcon': {
+            fontSize: '8rem',
+        }
     }
 }))
 
@@ -23,8 +37,10 @@ export default function ConfirmDialog(props) {
 
     return (
         <Dialog open={confirmDialog.isOpen} classes={{paper: classes.dialog}}>
-            <DialogTitle>
-
+            <DialogTitle className={classes.dialogTitle}>
+                <IconButton disableRipple className={classes.titleIcon}>
+                    <NotListedLocationIcon />
+                </IconButton>
             </DialogTitle>
             <DialogContent className={classes.dialogContent}>
                 <Typography variant='h6'>
