@@ -91,7 +91,10 @@ export default function Employees() {
     }
 
     const onDelete = id => {
-      if(window.confirm('Are you sure to delete ?')) {
+      setConfirmDialog({
+        ...confirmDialog,
+        isOpen: false
+      })
         employeeService.deleteEmployee(id)
         setRecords(employeeService.getAllEmployees())
         setNotify({
@@ -99,7 +102,6 @@ export default function Employees() {
           message: 'Deleted Successfully!',
           type: 'error'
         })
-      }
     }
 
     return (
@@ -150,7 +152,9 @@ export default function Employees() {
                         onClick={() => {
                           setConfirmDialog({isOpen: true,
                              title: 'Are you sure to delete this record?',
-                             subTitle: `You can't undo this operation.`})
+                             subTitle: `You can't undo this operation.`,
+                             onConfirm: () => {onDelete(item.id)}
+                            })
                         }}
                         >
                         <CloseIcon fontSize='small' />

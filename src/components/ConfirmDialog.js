@@ -59,6 +59,7 @@ export default function ConfirmDialog(props) {
                     <Controls.Button
                         text='YES'
                         color='secondary'
+                        onClick={confirmDialog.onConfirm}
                         />
             </DialogActions>
         </Dialog>
