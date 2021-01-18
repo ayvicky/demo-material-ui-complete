@@ -14,7 +14,7 @@ export default function Notification(props) {
     const classes = useStyles()
 
     const handleClose = (event, reason) => {
-        if(reson === 'clickaway') return
+        if(reason === 'clickaway') return
         setNotify({
             ...notify,
             isOpen: false

@@ -88,6 +88,18 @@ export default function Employees() {
       setOpenPopup(true)
     }
 
+    const onDelete = id => {
+      if(window.confirm('Are you sure to delete ?')) {
+        employeeService.deleteEmployee(id)
+        setRecords(employeeService.getAllEmployees())
+        setNotify({
+          isOpen: true,
+          message: 'Deleted Successfully!',
+          type: 'error'
+        })
+      }
+    }
+
     return (
         <>
         <PageHeader
@@ -132,6 +144,7 @@ export default function Employees() {
                       </Controls.ActionButton>
                       <Controls.ActionButton
                         color='secondary'
+                        onClick={() => onDelete(item.id)}
                         >
                         <CloseIcon fontSize='small' />
                       </Controls.ActionButton>
